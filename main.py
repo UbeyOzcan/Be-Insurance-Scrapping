@@ -1,5 +1,6 @@
 from src.auto.Yuzzu import Yuzzu
 
+
 yuzzu = Yuzzu(url="https://www.yuzzu.be/fr/assurance-auto/simulation",
               license_year="2013",
               birth_date="17071995",

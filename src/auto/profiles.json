@@ -1,0 +1,22 @@
+{
+  "license": "2013",
+  "birthday": "17071995",
+  "email": "test@example.com",
+  "first_circulation": "052022",
+  "first_owner": true,
+  "make": "Audi",
+  "model": "A3",
+  "fuel": "HYBRIDE",
+  "safety": true,
+  "km": ">30000",
+  "City": "Liege",
+  "Street": "Rue Fabry",
+  "number": 20,
+  "own_insurance": "Oui, et je voudrais recevoir une offre pour mon véhicule existant ou en vue de le remplacer",
+  "insured_years_since_2020": "5",
+  "claim_at_fault" : "0",
+  "license_withdraw": "Non",
+  "other_driver_<25": "Non",
+  "commercial_use": "Non",
+  "night_job_horeca": "Non"
+}
