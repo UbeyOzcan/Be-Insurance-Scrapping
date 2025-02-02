@@ -1,16 +1,18 @@
 import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from src.web import Chrome
 
-
 class Yuzzu:
-    def __init__(self, url: str, license_year: str, birth_date: str, email: str, first_circulation: str):
+    def __init__(self, url: str, license_year: str, birth_date: str, email: str, first_circulation: str, make:str):
         self.license_year = license_year
         self.birth_date = birth_date
         self.email = email
         self.url = url
         self.c = Chrome(self.url)
         self.first_circulation = first_circulation
+        self.make = make
 
     def fill_homepage(self):
         browser = self.c.accept_cookies()
@@ -50,5 +52,29 @@ class Yuzzu:
         time.sleep(3)
         return browser
 
-    def fill_vehicle(self, make:str, model:str):
-        return None
+    def fill_vehicle(self,browser:object):
+        try:
+            # Wait for the dropdown to be clickable
+            dropdown = WebDriverWait(browser, 10).until(
+                EC.element_to_be_clickable((By.CLASS_NAME, "css-1hwfws3"))
+            )
+
+            # Click the dropdown to open the options
+            dropdown.click()
+
+            # Wait for the options to be visible
+            option = WebDriverWait(browser, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//div[text()='AUDI']"))
+            )
+
+            # Click the desired option
+            option.click()
+            time.sleep(5)
+            print("Selection changed successfully!")
+
+        except Exception as e:
+            print(f"Error: {e}")
+
+        finally:
+            # Close the browser
+            browser.quit()
